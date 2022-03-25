@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
+import { createRouter, createWebHistory } from '@ionic/vue-router'; // Adiciona rotas com animação nativa
 import MemoriesPage from '../pages/MemoriesPage.vue'
 
 const routes = [
@@ -9,6 +9,10 @@ const routes = [
   {
     path: '/memories',
     component: MemoriesPage
+  },
+  {
+    path:'/details/:id',
+    component: () => import('../pages/MemoryDetails.vue')
   }
 ]
 

@@ -1,32 +1,51 @@
 <template>
-    <ion-page>
-        <ion-header >
-            <ion-toolbar>
-                <ion-title>All Memories</ion-title>
-            </ion-toolbar>
-        </ion-header> 
-        <ion-content>
-            <ion-list>
-                <ion-item>Max</ion-item>
-                <ion-item>Manuel</ion-item>
-                <ion-item>Jully</ion-item>
-                <ion-item>Jorge</ion-item>
-            </ion-list>
-        </ion-content>
-    </ion-page>
+    <base-layout :title="'Melhor do Mundo'">
+        <ion-list>
+            <ion-item v-for="item in items" :key="item.id" :router-link="`/details/${item.id}`">
+                <ion-thumbnail slot="start">
+                    <ion-img :src="item.img" :alt="item.title"></ion-img>
+                </ion-thumbnail>
+                <ion-label></ion-label>
+            </ion-item>
+        </ion-list>
+    </base-layout>
 </template>
 
 <script>
-import { IonPage, IonHeader, IonTitle, IonContent, IonToolbar, IonList, IonItem} from '@ionic/vue';
+import BaseLayout from '../components/Base/base-layout'
+import {IonList, IonItem, IonThumbnail, IonImg, IonLabel} from '@ionic/vue'
 export default {
     components: {
-        IonPage,
-        IonHeader,
-        IonTitle,
-        IonContent,
-        IonToolbar,
+        BaseLayout,
         IonList,
-        IonItem
+        IonItem,
+        IonThumbnail,
+        IonImg,
+        IonLabel
+    },
+    data(){
+        return{
+            items:[
+                {
+                    id:'m1',  
+                    title: 'A trip into the mountains', 
+                    img: 'https://drakensberghikes.com/media/zoo/images/20180708_082635-01_febce962ae19aa71dc8c8449c62de692.jpeg',
+                    description: 'Memory one with id 1', 
+                },
+                {
+                    id:'m2',  
+                    title: 'Surfing the sea side', 
+                    img: 'https://img.redbull.com/images/c_crop,x_0,y_669,h_2227,w_5568/c_fill,w_1680,h_700/q_auto,f_auto/redbullcom/2019/04/16/e04ec246-cd71-40db-8c47-3e9703132959/chasing-the-shot-leroy-bellet-michel-bourez-tahiti',
+                    description: 'Feeling the cool breeze', 
+                },
+                {
+                    id:'m3',  
+                    title: 'Good eating', 
+                    img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
+                    description: 'Really tasty', 
+                }
+            ]
+        }
     }
 }
 </script>
