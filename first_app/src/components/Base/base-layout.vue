@@ -6,6 +6,9 @@
                     <ion-back-button :default-href="defaultPage" ></ion-back-button>
                 </ion-buttons>
                 <ion-title>{{title}}</ion-title>
+                <ion-buttons slot="end">
+                    <slot name="actions-end"></slot>
+                </ion-buttons>
             </ion-toolbar>
         </ion-header>
         <ion-content>
@@ -15,7 +18,7 @@
 </template>
 
 <script>
-import {IonPage, IonHeader, IonTitle, IonContent, IonToolbar, IonButtons, IonBackButton} from '@ionic/vue'
+import {IonPage, IonHeader, IonTitle, IonContent, IonToolbar, IonButtons, IonBackButton, IonIcon} from '@ionic/vue'
 export default {
     props: {
         title:{
